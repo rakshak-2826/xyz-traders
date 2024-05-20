@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>XYZ Traders - Product Data Management</title>
+  <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+  <script src="path/to/FileSaver.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>XYZ Traders - Product Data Management</h1>
+  <div class="container">
+    <div class="form-group">
+      <label for="product">Select Product:</label>
+      <select id="product">
+        <option value="smartphone">Smartphone</option>
+        <option value="fan">Fan</option>
+        <option value="lightbulb">Light Bulb</option>
+        <option value="refrigerator">Refrigerator</option>
+        <option value="television">Television</option>
+      </select>
+    </div>
+      <div class="form-group">
+        <label for="serialNumber">Serial Number:</label>
+        <input type="text" id="serialNumber">
+      </div>
+      <div class="form-group">
+        <label for="voltage">Voltage:</label>
+        <input type="text" id="voltage">
+      </div>
+      <div class="form-group">
+        <label for="warranty">Warranty:</label>
+        <input type="text" id="warranty">
+      </div>
+      <div class="form-group">
+        <label for="quantity">Quantity:</label>
+        <input type="text" id="quantity">
+      </div>
+      <div class="form-group">
+        <label for="rating">Rating:</label>
+        <input type="text" id="rating">
+      </div>
+    <button class="button" onclick="storeProductData()">Store Product Data</button>
+  </div>
+  <div class="image">
+    <img src="data:image/jpeg;base64,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d1lawysT05Wo0oK51jHmWN4HincsdIaKocXbLQx9w0u4ZCSR3oDoVHaf43z/ABOsqQbsfKWxZ3HIs7SO3la0Hykq+de5hOCScqRtieDm995l2rED/rMi5mQFZGoL/WD/AMSb82Kt1mYXilRSycrTTSQSbJbtROLHbJ3i44ZBB2M5qqzHMQlx+qfh1E90eGwOHP6ln+8QfgYjxGXkNr7gNqn6jTXFJGOjfiNY5j2lr2md9nNORBz3ELHw3SivpoxFT1lRBGCXbMUjmN2jvNhxQdT4dhsVNDHBAwRxRN2WNHAdJPEk5knMkkr2IXLnZxivjKs+3f7V+dm+K+Maz7d/tQdQPavJwXMnZtinjGs+2f7V+dmuKeMKv7Z/tQfGnP8AqmIf8uf+sqDXrU1D5Xvkkc58j3Fz3ON3OcTckniV5ICIiAiIgIiICIiAiIgIiICIiAuyg5caq0P/ALdX+C0X1Z//AEQX+1y9Gu/zqXO79deJndDQt8kUxI9ci1vSDT/E65ro56pwidvjiDYYyLW2XbIBcOpxKCe1z6ZsxCrZBTv26Wk2g1zSdmaY93IOBaLBoPziMnKukRAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERB//Z" alt="">
+  </div>
+
+  <script>
+    function storeProductData() {
+      var productSelect = document.getElementById('product');
+      var selectedProduct = productSelect.value;
+
+      var serialNumberInput = document.getElementById('serialNumber');
+      var voltageInput = document.getElementById('voltage');
+      var warrantyInput = document.getElementById('warranty');
+      var quantityInput = document.getElementById('quantity');
+      var ratingInput = document.getElementById('rating');
+
+      var productData = {
+        'Serial Number': serialNumberInput.value,
+        'Voltage': voltageInput.value,
+        'Warranty': warrantyInput.value,
+        'Quantity': quantityInput.value,
+        'Rating': ratingInput.value
+      };
+
+
+
+      // Call a function to store the product data in the specific product excel sheet
+      storeDataInExcel(selectedProduct, productData);
+
+      // Reset the form inputs
+      serialNumberInput.value = '';
+      voltageInput.value = '';
+      warrantyInput.value = '';
+      quantityInput.value = '';
+      ratingInput.value = '';
+    }
+
+    function storeDataInExcel(product, data) {
+      // TODO: Implement the logic to store the data in the specific product excel sheet
+      // You can use a library like SheetJS (https://sheetjs.com/) to handle Excel file manipulation
+      // Here's a sample code that shows how you can use SheetJS to create an Excel file and store the data
+      var workbook = XLSX.utils.book_new();
+      var worksheet = XLSX.utils.json_to_sheet([data]);
+      XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+      XLSX.writeFile(workbook, product + '.xlsx');
+    }
+  </script>
+</body>
+</html>

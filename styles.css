@@ -1,0 +1,100 @@
+*
+{
+    padding: 0%;
+    margin: 0%;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html
+{
+    height: 100%;
+    width: 100%;
+
+}
+
+body
+{
+  background-image: url('https://res.cloudinary.com/practicaldev/image/fetch/s--BuPz-p40--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/nphrgz8yfnjylrwfr0yl.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+h1 {
+  text-align: center;
+  padding: 20px;
+  font-size: 50px;
+  margin-bottom: 50px;
+  padding-top: 25px;
+  color: gold;
+}
+
+.container {
+  width: 39.7%;
+  height: 480px;
+  float: left;
+  color: gold;
+  margin-left: 10%;
+  padding-top: 20px;
+  
+  }
+
+.form-group {
+    margin-bottom: 20px;
+    width: 80%;
+    margin-left: 5%;
+  }
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+.form-group input[type="text"] {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+
+.form-group select {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #428bca;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-left: 5%;
+  }
+
+.button:hover {
+    background-color: #3071a9;
+  }
+
+.image
+{
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  height: 450px;
+  float: right;
+  background-color: chartreuse;
+  border: 1px solid black;
+  margin-right: 10%;
+  margin-top: 15px;
+}
+
+.image img
+{
+  width: 100%;
+}
